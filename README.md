@@ -377,7 +377,8 @@ repository:
   title  = {PIVOT: Physics-Informed Voting Over Subsystems for Interpretable
             Anomaly Detection in Industrial Cyber-Physical Systems},
   year   = {2026},
-  url    = {https://github.com/sumendrabsingh/PIVOT-Anomaly-Detection-CPS}
+  url    = {https://github.com/sumendrabsingh/PIVOT-Anomaly-Detection-CPS},
+  doi    = {10.5281/zenodo.21682294}
 }
 ```
 
@@ -396,5 +397,5 @@ non-commercial academic research, with citation. Commercial use, redistribution,
 or incorporation into other software requires prior written permission — see
 [LICENSE](LICENSE).
 
-An archived, citable Zenodo deposit (with DOI badge) will be linked here on the first
-tagged release.
+An archived, citable version of this repository is deposited on Zenodo:
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21682294.svg)](https://doi.org/10.5281/zenodo.21682294)

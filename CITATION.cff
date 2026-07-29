@@ -11,6 +11,7 @@ authors:
     given-names: Sumendra B.
 year: 2026
 repository-code: https://github.com/sumendrabsingh/PIVOT-Anomaly-Detection-CPS
+doi: 10.5281/zenodo.21682294
 keywords:
   - intrusion detection
   - industrial control systems
