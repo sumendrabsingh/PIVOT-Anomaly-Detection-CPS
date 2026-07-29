@@ -1,0 +1,51 @@
+# ---- Datasets (license-restricted; never commit) ----
+# Raw datasets go here after you obtain them from the official sources (see README)
+SWaT_Orig_DataSets/*
+!SWaT_Orig_DataSets/.gitkeep
+!SWaT_Orig_DataSets/wadi/
+SWaT_Orig_DataSets/wadi/*
+!SWaT_Orig_DataSets/wadi/.gitkeep
+!SWaT_Orig_DataSets/hai/
+SWaT_Orig_DataSets/hai/*
+!SWaT_Orig_DataSets/hai/.gitkeep
+
+# Preprocessed CSVs are derived from the restricted datasets — keep only the
+# subsystem/preprocessing config JSONs under version control
+Datasets/*.csv
+
+# ---- Trained model bundles ----
+# Newly trained bundles are reproducible via the training scripts and are not
+# tracked — EXCEPT the small pretrained subsystem bundles that ship with the
+# repo so the SCADA dashboard and subsystem evaluation work out of the box.
+*.pth
+!Oracles/subsystem_*.pth
+!Oracles/wadi_subsystem_*.pth
+!Oracles/hai_subsystem_*.pth
+# per-seed SWaT bundles (1.3 MB) — the reproducibility evidence behind the headline table
+!Oracles/swat_seeds/seed*/subsystem_*.pth
+Oracles/*.png
+Oracles/swat/
+Oracles/wadi/
+Oracles/hai/
+
+# ---- Python ----
+__pycache__/
+*.pyc
+*.pyo
+env/
+venv/
+.venv/
+
+# ---- Live-feed working directory (written by gateways / simulate_live_feed.py) ----
+live/
+
+# ---- Logs / scratch output ----
+*.log
+debug_out.txt
+batch_results.txt
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

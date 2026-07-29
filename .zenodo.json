@@ -1,0 +1,27 @@
+{
+    "title": "PIVOT: Physics-Informed Voting Over Subsystems for Interpretable Anomaly Detection in Industrial Cyber-Physical Systems",
+    "upload_type": "software",
+    "creators": [
+        {
+            "name": "Singh, Sumendra B."
+        }
+    ],
+    "description": "Research code for anomaly/intrusion detection on Industrial Control Systems (ICS/SCADA). PIVOT decomposes the plant into localized, physically-constrained subsystems, each monitored by a Physics-Informed (PINN) autoencoder, and fuses their alarms with an OR-voting protocol. Removing the signal dilution that limits monolithic detectors raises SWaT F1 from 0.787 to 0.834 at a 0.20% false-alarm rate, and an explainable-AI layer traces each alarm to the stage and sensor that violated an invariant, exposing ground-truth labeling errors in SWaT. Under bounded, non-adaptive white-box evasion (PGD/APGD/C&W) the subsystem array degrades gracefully rather than collapsing. Includes training, evaluation, adversarial benchmarking, USAD/GDN baselines, XAI visualization, and a SCADA monitoring dashboard, evaluated on the SWaT, WADI, and HAI benchmarks. Published for academic reproducibility only; all rights reserved (see LICENSE).",
+    "access_right": "open",
+    "license": {
+        "id": "other-nc"
+    },
+    "keywords": [
+        "intrusion detection",
+        "anomaly detection",
+        "industrial control systems",
+        "SCADA",
+        "cyber-physical systems",
+        "physics-informed neural networks",
+        "adversarial robustness",
+        "autoencoder",
+        "SWaT",
+        "WADI",
+        "HAI"
+    ]
+}

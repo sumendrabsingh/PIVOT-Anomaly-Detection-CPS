@@ -1,0 +1,14 @@
+# Core (versions match the environment the published results were produced with)
+# PyTorch: install the CUDA build for GPU training, e.g.
+#   pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+torch==2.5.1
+numpy==2.4.6
+pandas==3.0.3
+scikit-learn==1.9.0
+scipy==1.17.1
+matplotlib==3.11.0
+joblib==1.5.3
+
+# Dashboards only (PIVOT_SCADA_Dashboard.py)
+streamlit==1.58.0
+plotly==6.8.0
