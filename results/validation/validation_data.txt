@@ -1,0 +1,18 @@
+C1  HAI 23.05 test labels
+  test1: 54,000 data rows, 54,000 label rows, label timestamps with seconds: 100%; rows matched by timestamp join: 100.0%; attack segments by join: 14, by row: 14 (2,981 attack rows); row-wise time agreement at label resolution: 100.00%
+    summary_label1.txt: ================================================================================= | File Name	: hai3/20220825_101225/test/split_label_220812_16_15_01_s081216_e081307.csv  |   File Size	: 1.1800 MB
+  test2: 230,400 data rows, 230,400 label rows, label timestamps with seconds: 0%; rows matched by timestamp join: 0.0%; attack segments by join: 0, by row: 38 (8,403 attack rows); row-wise time agreement at label resolution: 100.00%
+    summary_label2.txt: ================================================================================= | File Name	: hai3/20220825_101225/test/split_label_220817_00_64_01_s081700_e081916.csv  |   File Size	: 5.0500 MB
+  total attack segments: timestamp join 14, row alignment 52
+
+C2  WADI attack events
+  A1 file as preprocessed before the 2026-10-06 fix [y_submitted]: 8 events, 6,732 attack rows
+  A1 file as preprocessed before the 2026-10-06 fix [y_corrected]: 14 events, 9,985 attack rows
+  A2 (Datasets/wadi_test_preprocessed.csv, maintainers' table) [Normal/Attack]: 14 events, 9,948 attack rows
+
+C3  SWaT Jul 2019 clock offset (data time minus attack-PDF time, GMT+8)
+  P601 OFF->ON: PDF 15:26:57, data 15:25:13, offset -104 s
+  MV201 CLOSE->OPEN: PDF 15:38:50, data 15:37:12, offset -98 s
+  P301 ON->OFF: PDF 16:02:56, data 16:01:06, offset -110 s
+  FIT401 spoof (0.5) end: PDF 15:10:31, data 15:08:44, offset -107 s
+  median offset -105.5 s over 4 second-resolution anchors

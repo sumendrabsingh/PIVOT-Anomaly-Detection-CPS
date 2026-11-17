@@ -1,0 +1,70 @@
+file,status,rows,max_abs_diff,worst_column
+decomposition_ablation_label_free_swat.csv,numbers differ,60,17.0,FA_episodes
+physics_ablation_label_free_swat.csv,numbers differ,80,37.0,FA_episodes
+decomposition_mechanism_swat.csv,numbers differ,4375,1.0,caught
+baselines_simple_label_free_swat.csv,numbers differ,44,12.0,FA_episodes
+baselines_simple_generalization.csv,ok,11,0.0,
+leakage_effect.csv,numbers differ,50,64.0,FA_episodes
+orvote_check_swat.csv,numbers differ,125,1.8499999999999996,beyond
+orvote_check_swat_labelfree.csv,numbers differ,20,2.0600000000000005,beyond
+orvote_check_wadi.csv,ok,125,0.0,
+orvote_check_wadi_labelfree.csv,ok,20,0.0,
+orvote_check_hai.csv,numbers differ,125,4.380000000000003,beyond
+orvote_check_hai_labelfree.csv,numbers differ,20,3.960000000000001,beyond
+physics_or_test_swat_summary.csv,numbers differ,3,1.048,CI_high
+physics_or_test_swat_labelfree.csv,numbers differ,11,0.020000000000000462,chance
+physics_or_test_wadi_summary.csv,ok,3,0.0,
+physics_or_test_wadi_labelfree.csv,ok,11,0.0,
+physics_or_test_hai_summary.csv,numbers differ,3,1.3160500000000015,CI_low
+physics_or_test_hai_labelfree.csv,numbers differ,11,7.0,FA_episodes
+decomposition_confirm_wadi_summary.csv,ok,5,0.0,
+decomposition_confirm_wadi_labelfree.csv,ok,10,0.0,
+decomposition_confirm_hai_summary.csv,numbers differ,5,2.7180500000000007,CI_high
+decomposition_confirm_hai_labelfree.csv,numbers differ,10,60.0,FA_episodes
+deployable_test_hai2204_summary.csv,ok,1,0.0,
+deployable_test_hai2204_seeds.csv,ok,10,0.0,
+deployable_test_hai2103_summary.csv,numbers differ,1,1.331999999999999,CI_low
+deployable_test_hai2103_seeds.csv,numbers differ,10,200.0,FA_episodes
+deployable_test_hai2007_commission_summary.csv,ok,1,0.0,
+deployable_test_hai2007_commission_seeds.csv,ok,10,0.0,
+deployable_test_swat_commission_summary.csv,numbers differ,1,0.018149999999998556,CI_low
+deployable_test_wadi_commission_summary.csv,ok,1,0.0,
+deployable_test_hai2305_commission_summary.csv,numbers differ,1,0.8980499999999998,CI_low
+deployable_test_hai2204_commission_summary.csv,ok,1,0.0,
+deployable_test_hai2103_commission_summary.csv,numbers differ,1,0.08990000000000009,CI_low
+orvote_confirm_hai2007_summary.csv,ok,4,0.0,
+orvote_confirm_hai2204_summary.csv,ok,4,0.0,
+orvote_confirm_hai2103_summary.csv,numbers differ,4,1.4439499999999992,CI_low
+orvote_confirm_hai2007_f1.csv,ok,40,0.0,
+orvote_confirm_hai2204_f1.csv,ok,40,0.0,
+orvote_confirm_hai2103_f1.csv,numbers differ,40,0.10261346925894221,F1
+orvote_confirm_hai2007_labelfree.csv,ok,10,0.0,
+orvote_confirm_hai2204_labelfree.csv,ok,10,0.0,
+orvote_confirm_hai2103_labelfree.csv,numbers differ,10,5.199999999999996,beyond
+orvote_mechanism_hai2007.csv,ok,1520,0.0,
+orvote_mechanism_hai2204.csv,ok,2320,0.0,
+orvote_mechanism_hai2103.csv,numbers differ,2000,1.04,excess
+calibration_dev_swat.csv,numbers differ,35,87.0,FA_episodes
+calibration_dev_wadi.csv,ok,35,0.0,
+calibration_dev_hai.csv,numbers differ,35,74.0,FA_episodes
+orvote_deploy_hai2007_summary.csv,ok,1,0.0,
+orvote_deploy_hai2204_summary.csv,ok,1,0.0,
+orvote_deploy_hai2103_summary.csv,numbers differ,1,0.23199999999999577,CI_low
+orvote_deploy_hai2007_seeds.csv,ok,20,0.0,
+orvote_deploy_hai2204_seeds.csv,ok,20,0.0,
+orvote_deploy_hai2103_seeds.csv,numbers differ,20,211.0,FA_episodes
+orvote_deploy_hai2007_shift_summary.csv,ok,1,0.0,
+orvote_deploy_hai2204_shift_summary.csv,ok,1,0.0,
+orvote_deploy_hai2103_shift_summary.csv,numbers differ,1,1.2239499999999996,CI_high
+orvote_deploy_hai2007_shift_seeds.csv,ok,30,0.0,
+orvote_deploy_hai2204_shift_seeds.csv,ok,30,0.0,
+orvote_deploy_hai2103_shift_seeds.csv,numbers differ,30,34.0,FA_episodes
+orvote_deploy_swat2019jul_shift_summary.csv,numbers differ,1,0.14,CI_low
+orvote_deploy_swat2019dec_shift_summary.csv,numbers differ,1,1.0,far_ok_seeds
+orvote_deploy_swat2022nov_shift_summary.csv,numbers differ,1,0.3020499999999995,CI_high
+orvote_deploy_swat2019jul_shift_seeds.csv,numbers differ,30,8.0,FA_episodes
+orvote_deploy_swat2019dec_shift_seeds.csv,numbers differ,30,32.0,FA_episodes
+orvote_deploy_swat2022nov_shift_seeds.csv,numbers differ,30,15.0,FA_episodes
+matched_far_attack_swat.csv,numbers differ,220,2.0,events
+feasible_attack_label_free_swat.csv,numbers differ,246,175762.0,out_of_range_cells
+drift_isolation_hai2204.csv,numbers differ,6,6.334781588179794e-08,test_normal_p99

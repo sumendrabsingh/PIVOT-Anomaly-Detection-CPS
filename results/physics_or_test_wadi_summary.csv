@@ -1,0 +1,4 @@
+target_FAR,note,base_beyond,union_beyond,diff,CI_low,CI_high,seeds_union_better
+0.005,physics arm alone has FAR 0.55% >= target,,,,,,
+0.01,,8.906,8.693999999999999,-0.21199999999999933,-2.1020499999999998,2.1360000000000006,1.0
+0.02,,9.07,8.16,-0.9100000000000001,-1.864,0.31199999999999983,0.0
