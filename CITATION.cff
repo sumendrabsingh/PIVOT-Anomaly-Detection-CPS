@@ -9,14 +9,18 @@ title: >-
 authors:
   - family-names: Singh
     given-names: Sumendra B.
-year: 2026
+version: "1.0"
+date-released: 2026-11-16
 repository-code: https://github.com/sumendrabsingh/PIVOT-Anomaly-Detection-CPS
 doi: 10.5281/zenodo.21682294
 keywords:
-  - intrusion detection
   - industrial control systems
-  - SCADA
-  - cyber-physical systems
-  - physics-informed neural networks
-  - adversarial robustness
+  - anomaly detection
+  - evaluation
+  - pre-registration
+  - concept drift
+  - adversarial evasion
+  - SWaT
+  - WADI
+  - HAI
 license-url: https://github.com/sumendrabsingh/PIVOT-Anomaly-Detection-CPS/blob/main/LICENSE

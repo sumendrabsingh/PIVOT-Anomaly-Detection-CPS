@@ -1,6 +1,7 @@
 {
     "title": "Deconstructing Stage-Wise Anomaly Detection in Industrial Control Systems: Drift Isolation, Adversarial Limits, and Pre-Registered Benchmarks (code, results and pre-registrations)",
     "upload_type": "software",
+    "version": "1.0",
     "creators": [
         {
             "name": "Singh, Sumendra B."
