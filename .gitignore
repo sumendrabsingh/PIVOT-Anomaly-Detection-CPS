@@ -49,3 +49,6 @@ batch_results.txt
 Thumbs.db
 .vscode/
 .idea/
+
+# Shipped bundles of the preliminary investigation (moved with the rest of it)
+!legacy_preliminary/Oracles/**/*.pth

@@ -1,0 +1,17 @@
+{
+  "_comment": "SWaT physical invariants for the NIO v2 physics-residual detector. Coefficients for mass balance are fit on normal data at runtime; this file declares the topology (which flows feed/drain each tank) and the actuator-flow interlocks, derived from the SWaT P&ID and confirmed by correlating d(level)/dt against flows on normal data.",
+  "mass_balance": [
+    {"tank": "LIT101", "inflow": "FIT101", "outflow": "FIT201", "stage": "Stage1_RawWater"},
+    {"tank": "LIT301", "inflow": "FIT201", "outflow": "FIT301", "stage": "Stage3_Ultrafiltration"},
+    {"tank": "LIT401", "inflow": "FIT301", "outflow": "FIT401", "stage": "Stage4_Dechlorination"}
+  ],
+  "actuator_flow_interlock": [
+    {"actuator": "MV101", "flow": "FIT101", "type": "valve", "stage": "Stage1_RawWater",
+     "_rule": "MV101 closed => FIT101 ~ 0"},
+    {"actuator": "P101", "flow": "FIT201", "type": "pump", "stage": "Stage1_RawWater",
+     "_rule": "P101 off => FIT201 ~ 0 (raw-water pump feeds Stage 2)"},
+    {"actuator": "MV201", "flow": "FIT201", "type": "valve", "stage": "Stage2_ChemicalDosing"},
+    {"actuator": "P301", "flow": "FIT301", "type": "pump", "stage": "Stage3_Ultrafiltration"},
+    {"actuator": "P602", "flow": "FIT601", "type": "pump", "stage": "Stage6_ROCleaning"}
+  ]
+}

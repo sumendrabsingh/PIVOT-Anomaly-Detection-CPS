@@ -1,0 +1,16 @@
+# Linux environment for PIVOT. Versions match the original Windows env
+# except torch: 2.5.1+cu121 has no kernels for the RTX 5090 (sm_120), so cu128 is used.
+# Install:
+#   python3.12 -m venv .venv
+#   .venv/bin/pip install torch==2.11.0 --index-url https://download.pytorch.org/whl/cu128
+#   .venv/bin/pip install -r requirements-linux.txt
+numpy==2.4.6
+pandas==3.0.3
+scikit-learn==1.9.0
+matplotlib==3.11.0
+scipy==1.17.1
+plotly==6.8.0
+streamlit==1.58.0
+# Official GDN baseline (GDN_official/, gdn_label_free_dump.py); added 2026-11-04
+torch_geometric==2.6.1
+pytz==2024.2

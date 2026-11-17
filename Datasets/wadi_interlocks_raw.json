@@ -1,0 +1,40 @@
+{
+  "_comment": "Derived by wadi_interlock_validation.py from WADI_14days.csv days 1-10, raw units; off = state 1 (pump off / valve closed); see the script for the rule.",
+  "actuator_flow_interlock": [
+    {
+      "actuator": "1_MV_001_STATUS",
+      "flow": "1_FIT_001_PV",
+      "flow_scale": 1.95255
+    },
+    {
+      "actuator": "1_P_001_STATUS",
+      "flow": "1_FIT_001_PV",
+      "flow_scale": 1.95255
+    },
+    {
+      "actuator": "1_P_003_STATUS",
+      "flow": "1_FIT_001_PV",
+      "flow_scale": 1.95255
+    },
+    {
+      "actuator": "1_P_005_STATUS",
+      "flow": "2_FIT_001_PV",
+      "flow_scale": 2.27455
+    },
+    {
+      "actuator": "2_MV_003_STATUS",
+      "flow": "2_FIT_001_PV",
+      "flow_scale": 2.27455
+    },
+    {
+      "actuator": "2_MV_006_STATUS",
+      "flow": "2_FIT_003_PV",
+      "flow_scale": 1.34986
+    },
+    {
+      "actuator": "2_P_003_STATUS",
+      "flow": "2_FIT_003_PV",
+      "flow_scale": 1.34986
+    }
+  ]
+}

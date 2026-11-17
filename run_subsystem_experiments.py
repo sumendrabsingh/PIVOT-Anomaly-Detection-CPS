@@ -1,3 +1,12 @@
+"""v1 SWaT subsystem runner -- REFERENCE ONLY (leaks test labels; physics rules also flawed:
+PINNLoss gates on the RECONSTRUCTED valve state and includes MV301 -> FIT301, which is false --
+MV301 is the UF backwash valve. Use run_generalized_subsystems.py --physics interlock instead).
+
+This is the protocol behind the v1 paper's numbers: ALIGN_BASELINE normalizes inputs on test rows
+labelled normal, errors are standardized on those rows, and evaluate_dual_threshold sweeps
+thresholds for F1 on the test labels. Keep it only to reproduce those numbers. The label-free
+protocol (see label_free.py) is run_generalized_subsystems.py with the default --calibration train.
+"""
 import os
 import torch
 import torch.nn as nn
@@ -18,6 +27,10 @@ DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 TRAIN_DATA = r"SWaT_Orig_DataSets/Original Dataset Backup/SWaT_Dataset_Normal_v1_Clean.csv"
 EVAL_DATA = r"SWaT_Orig_DataSets/SWaT_Dataset_Attack_v0_Corrected.csv"
+# Where subsystem_<name>.pth bundles are read from / written to. The root Oracles/ copies have
+# been overwritten by later ablation arms; the archived sets live in Oracles/_backup_* and
+# Oracles/_arm_*, so this is overridable rather than inlined.
+MODEL_DIR = "Oracles"
 
 # 6 stages of the Secure Water Treatment (SWaT) system
 subsystems = {
@@ -275,8 +288,8 @@ def train_subsystem(name, features):
         'bottleneck_dim': bottleneck_dim
     }
     
-    os.makedirs('Oracles', exist_ok=True)
-    out_path = f"Oracles/subsystem_{name}.pth"
+    os.makedirs(MODEL_DIR, exist_ok=True)
+    out_path = os.path.join(MODEL_DIR, f"subsystem_{name}.pth")
     torch.save(checkpoint, out_path)
     print(f"  Saved subsystem model to {out_path}")
 
@@ -423,7 +436,7 @@ def _compute_subsystem_scores(run_adversarial=False, epsilon=0.1, alpha=0.01, nu
     subsystem_scores = {}
 
     for name, features in subsystems.items():
-        model_path = f"Oracles/subsystem_{name}.pth"
+        model_path = os.path.join(MODEL_DIR, f"subsystem_{name}.pth")
         if not os.path.exists(model_path):
             print(f"  [ERROR] Model checkpoint {model_path} not found!")
             return None, None
@@ -532,11 +545,14 @@ def _compute_subsystem_scores(run_adversarial=False, epsilon=0.1, alpha=0.01, nu
     return y_true, subsystem_scores
 
 
-def evaluate_subsystems_or_voting(window_size=25, run_adversarial=False, epsilon=0.1, alpha=0.01, num_iter=10):
+def evaluate_subsystems_or_voting(window_size=25, run_adversarial=False, epsilon=0.1, alpha=0.01, num_iter=10,
+                                  export_predictions=None):
     """Per-Subsystem Independent Thresholding with OR-Voting.
 
     Each subsystem gets its own optimal threshold. A sample is flagged
     as anomalous if ANY subsystem exceeds its own threshold.
+
+    export_predictions: path to write y_true/y_pred/per-subsystem scores for evaluate_events.py.
     """
     print("\n" + "=" * 80)
     print(" EVALUATING SUB-SYSTEM AUTOENCODERS -- OR-VOTING MODE")
@@ -636,6 +652,14 @@ def evaluate_subsystems_or_voting(window_size=25, run_adversarial=False, epsilon
     print(f"    TP: {tp:,} | FN: {fn:,}")
     print(f"    FP: {fp:,} | TN: {tn:,}")
     print("=" * 60)
+
+    if export_predictions:
+        out = pd.DataFrame({'y_true': y_true.astype(int), 'y_pred': combined_preds})
+        out['score'] = np.max([smoothed[name] for name in subsystems.keys()], axis=0)
+        for name in subsystems.keys():
+            out[f'score_{name}'] = smoothed[name]
+        out.to_csv(export_predictions, index=False)
+        print(f"  [SAVED] predictions -> {export_predictions}  (score with evaluate_events.py)")
 
     return {'accuracy': accuracy, 'precision': precision, 'recall': recall,
             'f1': f1, 'false_alarm': false_alarm, 'tp': tp, 'fp': fp, 'fn': fn, 'tn': tn}
@@ -892,7 +916,7 @@ def evaluate_subsystems_selective_or(window_size=25, min_sub_f1=0.30):
     return {'accuracy': accuracy, 'precision': precision, 'recall': recall,
             'f1': f1_val, 'false_alarm': false_alarm, 'tp': tp, 'fp': fp, 'fn': fn, 'tn': tn}
 
-def evaluate_dual_threshold(window_size=25):
+def evaluate_dual_threshold(window_size=25, export_predictions=None):
     """Dual-Threshold with Temporal Persistence.
 
     Uses two tiers:
@@ -1023,11 +1047,19 @@ def evaluate_dual_threshold(window_size=25):
     print(f"    Instant Detections (>{h_t:.2f}):  {instant_tp:,}")
     print(f"    Sustained Detections Added:    {sustained_only_tp:,}")
 
+    if export_predictions:
+        out = pd.DataFrame({'y_true': y_true.astype(int), 'y_pred': best_preds, 'score': agg_scores})
+        for name in subsystems.keys():
+            out[f'score_{name}'] = smoothed[name]
+        out.to_csv(export_predictions, index=False)
+        print(f"  [SAVED] predictions -> {export_predictions}  (score with evaluate_events.py)")
+
     return {'accuracy': accuracy, 'precision': precision, 'recall': recall,
             'f1': best_f1, 'false_alarm': false_alarm, 'tp': tp, 'fp': fp, 'fn': fn, 'tn': tn}
 
 
 def main():
+    print("[WARNING] run_subsystem_experiments.py calibrates on test labels (v1 reference protocol).")
     if TRAIN_MODELS:
         print("Starting training for all 6 subsystem autoencoders...")
         for name, features in subsystems.items():
