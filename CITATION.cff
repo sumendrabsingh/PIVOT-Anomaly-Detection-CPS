@@ -4,8 +4,8 @@ message: >-
   metadata below (add the Zenodo DOI of the release you used).
 type: software
 title: >-
-  PIVOT: Physics-Informed Voting Over Subsystems for Interpretable Anomaly
-  Detection in Industrial Cyber-Physical Systems
+  Deconstructing Stage-Wise Anomaly Detection in Industrial Control Systems:
+  Drift Isolation, Adversarial Limits, and Pre-Registered Benchmarks
 authors:
   - family-names: Singh
     given-names: Sumendra B.
