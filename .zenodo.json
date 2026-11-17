@@ -1,25 +1,23 @@
 {
-    "title": "PIVOT: Physics-Informed Voting Over Subsystems for Interpretable Anomaly Detection in Industrial Cyber-Physical Systems",
+    "title": "Deconstructing Stage-Wise Anomaly Detection in Industrial Control Systems: Drift Isolation, Adversarial Limits, and Pre-Registered Benchmarks (code, results and pre-registrations)",
     "upload_type": "software",
     "creators": [
         {
             "name": "Singh, Sumendra B."
         }
     ],
-    "description": "Research code for anomaly/intrusion detection on Industrial Control Systems (ICS/SCADA). PIVOT decomposes the plant into localized, physically-constrained subsystems, each monitored by a Physics-Informed (PINN) autoencoder, and fuses their alarms with an OR-voting protocol. Removing the signal dilution that limits monolithic detectors raises SWaT F1 from 0.787 to 0.834 at a 0.20% false-alarm rate, and an explainable-AI layer traces each alarm to the stage and sensor that violated an invariant, exposing ground-truth labeling errors in SWaT. Under bounded, non-adaptive white-box evasion (PGD/APGD/C&W) the subsystem array degrades gracefully rather than collapsing. Includes training, evaluation, adversarial benchmarking, USAD/GDN baselines, XAI visualization, and a SCADA monitoring dashboard, evaluated on the SWaT, WADI, and HAI benchmarks. Published for academic reproducibility only; all rights reserved (see LICENSE).",
+    "description": "Code, result files, label corrections and pre-registration texts for the paper \"Deconstructing Stage-Wise Anomaly Detection in Industrial Control Systems: Drift Isolation, Adversarial Limits, and Pre-Registered Benchmarks\". The paper asks whether splitting a plant into its physical stages, with one detector per stage (PIVOT), catches attacks better than one detector for the whole plant, and tests this under strict rules: thresholds come from normal data only, every count of attacks caught is compared with what the same alarms would catch by chance, and eight hypotheses were written down before they were tested on unused data (further HAI releases, and SWaT releases recorded years after the training data). Three of 20 release-level verdicts supported the hypotheses. The repository contains the evaluation code, the result files the paper's numbers are computed from, the record of an independent re-run, label corrections for HAI 23.05, WADI and SWaT July 2019, and the hypothesis texts H1-H6 with their outcomes. The folder legacy_preliminary/ holds the earlier investigation (\"Physics-Informed Voting Over Subsystems\") that the paper refers to; its results are superseded by the paper. The SWaT, WADI and HAI datasets are not included and must be obtained from their maintainers. Published for academic reproducibility only; all rights reserved (see LICENSE).",
     "access_right": "open",
     "license": {
         "id": "other-nc"
     },
     "keywords": [
-        "intrusion detection",
-        "anomaly detection",
         "industrial control systems",
-        "SCADA",
-        "cyber-physical systems",
-        "physics-informed neural networks",
-        "adversarial robustness",
-        "autoencoder",
+        "anomaly detection",
+        "evaluation",
+        "pre-registration",
+        "concept drift",
+        "adversarial evasion",
         "SWaT",
         "WADI",
         "HAI"
